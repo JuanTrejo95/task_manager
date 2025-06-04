@@ -17,8 +17,3 @@ Está construida siguiendo principios de **arquitectura limpia**, incluye prueba
 - Mockito
 - Lombok
 
----
-
-## Estructura del proyecto
-
-

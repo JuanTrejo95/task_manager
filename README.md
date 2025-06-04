@@ -1,11 +1,11 @@
-# 📌 API REST - Gestión de Tareas
+# API REST - Gestión de Tareas
 
 Este proyecto es una **API RESTful** desarrollada con **Spring Boot**, enfocada en la gestión de tareas. 
 Está construida siguiendo principios de **arquitectura limpia**, incluye pruebas unitarias, documentación automática con Swagger, y persistencia con **MySQL** a través de **Spring Data JPA**.
 
 ---
 
-## 🚀 Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - Java 17+
 - Spring Boot
@@ -19,6 +19,6 @@ Está construida siguiendo principios de **arquitectura limpia**, incluye prueba
 
 ---
 
-## 📂 Estructura del proyecto
+## Estructura del proyecto
 
 

@@ -16,4 +16,5 @@ Está construida siguiendo principios de **arquitectura limpia**, incluye prueba
 - JUnit 5
 - Mockito
 - Lombok
+- JWT
 

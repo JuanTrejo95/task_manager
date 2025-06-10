@@ -3,7 +3,9 @@ package com.juanTrejo95.task_manager.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.juanTrejo95.task_manager.model.Task;
 import com.juanTrejo95.task_manager.repository.TaskRepository;
@@ -28,16 +30,23 @@ public class TaskService {
         return repository.save(task);
     }
 
-    public Task updateTask(Long id, Task taskData) {
-        Task task = repository.findById(id).orElseThrow();
-        task.setTitle(taskData.getTitle());
-        task.setDescription(taskData.getDescription());
-        task.setCompleted(taskData.isCompleted());
-        return repository.save(task);
-    }
+    public Task updateTask(Long id, Task updatedTask) {
+        Task existingTask = repository.findById(id)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Tarea no encontrada"));
 
+        existingTask.setTitle(updatedTask.getTitle());
+        existingTask.setDescription(updatedTask.getDescription());
+        existingTask.setCompleted(updatedTask.isCompleted());
+
+        return repository.save(existingTask);
+    }
+    
     public void deleteTask(Long id) {
+        boolean exists = repository.existsById(id);
+        if (!exists) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Tarea no encontrada");
+        }
         repository.deleteById(id);
-    }    
+    }
     
 }
